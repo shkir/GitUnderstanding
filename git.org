@@ -1,0 +1,21 @@
+* Introduction
+There are tons of manuals, courses, presentations all around the Internet, but people around are still keep struggling with it. 
+I'll try to explain it from the point of view of my own understanding, which could be not technically precise, but could make understanding a bit easier.
+* TODO TL;DR
+
+* TODO Basics
+Basics is the first thing to start from, right?
+** TODO Commit
+Commit is one of the basic terms of git, but very important for understanding of it's behavior.
+Few things you need to remember:
+- Commits are not changable physically. 
+Git always creates new commits even if it seems like you are changing something. Every commit has it's own unique identifier, a hash sum, called "sha1".
+- A single commit is a set of patches (or changes, differences, etc.) for any number of files belonging to repository at once. 
+That means actually, that every commit might be viewed as a whole snapshot, or version in repository. 
+Checking out a commit will set the version of repository which was at the moment of creation of that commit.
+- 
+** TODO Branch
+** TODO Repository
+
+
+* TODO Good Practices
