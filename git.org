@@ -9,7 +9,7 @@ Few things you need to remember:
 - A single commit is a set of patches (or changes, differences, etc.) for any number of files belonging to repository at once. 
 That means actually, that every commit might be viewed as a whole snapshot, or version in repository. Though it is only a set of differences applied to the parent of this commit. 
 Git reconstructs the whole repository structure by following the history of the chosen commit during checkout.
-- Commits are not changable physically. 
+- Commits are not changeable physically. 
 Git always creates new commits even if it seems like you are changing something. Every commit has it's own unique identifier, a hash sum, called "sha1".
 - Every single commit (except the very first one in the repository history) is bound to at least one another commit. 
 Let's call that parent commit as the "base" of that commit. It is essential for understanding the "rebase" process.
@@ -31,7 +31,7 @@ Checkout of a file from another commit is possible too with a similar command. E
 ** History of actions
 reflog
 ** Addressing the commits
-There is a lot of ways to address a single commit. It can be either stating the branch name, if you want to address the last commit on the branch, or giving a sha1, or using so called ancestry referrence. 
+There is a lot of ways to address a single commit. It can be either stating the branch name, if you want to address the last commit on the branch, or giving a sha1, or using so called ancestry reference. 
 
 
 * TODO Good Practices
