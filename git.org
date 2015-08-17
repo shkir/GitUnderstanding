@@ -21,7 +21,7 @@ Every git repository is a self-efficient working copy of the project usually. Or
 * TODO Operations
 ** TODO Checkout
 Checking out a commit is selecting the version in the history of your repository. After checkout you'll have the same state of your working folder as you had after committing.
-Checkout of a file from another commit is possible too with a similar command. E.g.
+Checkout of a file from another commit is possible too with a similar command. E.g. Checkout state of some file from previous commit: "git checkout HEAD^ -- <file>"
 ** TODO Merge
 ** TODO Rebase
 ** TODO Fetch
@@ -30,8 +30,14 @@ Checkout of a file from another commit is possible too with a similar command. E
 * TODO Useful stuff
 ** History of actions
 reflog
-** Addressing the commits
+** Addressing commits
 There is a lot of ways to address a single commit. It can be either stating the branch name, if you want to address the last commit on the branch, or giving a sha1, or using so called ancestry reference. 
-
+Examples of checking out of the same commit of the repository (sha1 "feca1e5...", two commits behind the "master" branch, having tag "ver1" and branch "br1":
+git checkout feca1e (usually you don't need to write the whole sha1 sum, few first symbols is enough)
+git checkout master^^ (parent of the parent of the master)
+git checkout master~2 (commit which is two commits behind the master)
+git checkout master~1^ (parent of commit which is one commit behind the master)
+git checkout ver1
+git checkout br1
 
 * TODO Good Practices
