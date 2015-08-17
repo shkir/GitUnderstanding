@@ -1,5 +1,6 @@
 * Introduction
 There are tons of manuals, courses, presentations all around the Internet, very good man (git help <command>) with loads of examples and explanations, but people are still keep struggling with it. 
+
 I'll try to explain it from the point of view of my own understanding, which could be not very precise technically, but I hope it could make understanding a bit easier for someone.
 * Basic terms
 Basics is the first thing to start from, right?
@@ -15,6 +16,7 @@ Git always creates new commits even if it seems like you are changing something.
 Let's call that parent commit as the "base" of that commit. It is essential for understanding the "rebase" process.
 ** Branch
 Branches are pointers to commits. Single branch can point only to the single commit. It doesn't point anywhere else, so by addressing the branch you are addressing the commit it is placed on. It's really enough to know where the branch ends to see all the commits of that branch.
+
 Branch itself doesn't need to track the relationship between commits, those relationships are properties of commits. It is a useful tool for dealing with your commits, it doesn't do much on it's own. Committing into the branch only means making a new commit on top of the current one and moving the branch (like a pointer) to that new commit.
 ** Repository
 Every git repository is a self-efficient working copy of the project usually. Or at least it contains all the links to it's dependencies for each it's commit. From point of view of git it is really doesn't mater which repository is main, or clone. You may work with every repository outside of your local one as like it is a remote repository.
@@ -22,19 +24,27 @@ Every git repository is a self-efficient working copy of the project usually. Or
 Common operations you could want to perform in git.
 ** Checkout
 Checking out a commit is selecting the version in the history of your repository. After checkout you'll have the same state of your working folder as you had after committing.
+
 Checkout of a file from another commit is possible too with a similar command. E.g. Checkout state of some file from previous commit: "git checkout HEAD^ -- <file>"
 ** TODO Merge
 
 ** Rebase
 Basic rebase is an operation for "changing" the parent (base) of commits or even the whole branches. 
+
 For that operation git obviously need to know a few things: location of the new base, the base commit of the branch you want to "move" and some commit from that branch you would want to be the tip of a new branch. With this knowledge you could move any parts of the branches almost anywhere you want.
+
 To perform such a rebase you may use the general form of "git rebase --onto" as follows "git rebase --onto <new base commit> <current base> <the ending part of the branch>" or it could be rephrased like "git rebase --onto <where> <where-from> <what>"
+
 There are some simplified variations of rebase of course, like "git rebase <branch>" or "git rebase --onto <where> <where-from>".
+
 For the first variation it will try to perform rebase onto the <branch> using the commit where currently selected commit branch diverged from the <branch> as a base, and currently checked out commit as a tip of the branch which need to be rebased (<what>).
+
 Second one uses the current commit as a <what> in general form, and all the rest is the same.
 
 There is so called "interactive" rebase also, which can be used by simply adding "-i" key into your rebase command. In that mode you have way more abilities for changing your commits history, like squash, edit, fixup, split, reword description of commits and so on. Change the operation on the commits in the showing list to perform some actions: Swap the lines representing the commits, and they will be swapped in the new history, delete the line and commit will be removed from it. Everything your heart desires. 
+
 And of course you can combine the keys together, so you may perform a rebase of part of the branch with editing some of the commits in it with the single command.
+
 As a simple example use "git rebase -i branch^^", mark the second commit with "f" instead of "pick" in the popped up editor, and you will end with the two latest commits of the branch united into the single one.
 ** TODO Reset
 ** TODO Fetch
@@ -45,12 +55,19 @@ As a simple example use "git rebase -i branch^^", mark the second commit with "f
 reflog
 ** Addressing commits
 There is a lot of ways to address a single commit. It can be either stating the branch name, if you want to address the last commit on the branch, or giving a sha1, or using so called ancestry reference. 
+
 Examples of checking out of the same commit of the repository (sha1 "feca1e5...", two commits behind the "master" branch, having tag "ver1" and branch "br1":
+
 git checkout feca1e (usually you don't need to write the whole sha1 sum, few first symbols is enough)
+
 git checkout master^^ (parent of the parent of the master ^.^)
+
 git checkout master~2 (commit which is two commits behind the master)
+
 git checkout master~1^ (parent of commit which is one commit behind the master)
+
 git checkout ver1
+
 git checkout br1
 
 Of course this addressing could be used whenever you need to address the commit, not only in checkout function.
