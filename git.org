@@ -5,9 +5,9 @@ I'll try to explain it from the point of view of my own understanding, which cou
 * Basic terms
 Basics is the first thing to start from, right?
 ** Commit
-Commit is one of the basic terms of git, but very important for understanding of it's behavior.
+Commit is the one of the basic terms of git, but very important for understanding of it's behavior.
 Few things you need to remember:
-- A single commit is a set of patches (or changes, differences, etc.) for any number of files belonging to repository at once. 
+- A single commit could be thought as a set of patches (or changes, differences, etc.) for any number of files belonging to repository at once. 
 That means actually, that every commit might be viewed as a whole snapshot, or version in repository. Though it is only a set of differences applied to the parent of this commit. 
 Git reconstructs the whole repository structure by following the history of the chosen commit during checkout.
 - Commits are not changeable physically. 
@@ -15,7 +15,7 @@ Git always creates new commits even if it seems like you are changing something.
 - Every single commit (except the very first one in the repository history) is bound to at least one another commit. 
 Let's call that parent commit as the "base" of that commit. It is essential for understanding the "rebase" process.
 ** Branch
-Branches are pointers to commits. Single branch can point only to the single commit. It doesn't point anywhere else, so by addressing the branch you are addressing the commit it is placed on. It's really enough to know where the branch ends to see all the commits of that branch.
+Branches could be thought as pointers to commits. Single branch can point only to the single commit. So by addressing the branch you are addressing the commit it is placed on. Knowhing where the branch ends is enough to see all the commits of that branch.
 
 Branch itself doesn't need to track the relationship between commits, those relationships are properties of commits. It is a useful tool for dealing with your commits, it doesn't do much on it's own. Committing into the branch only means making a new commit on top of the current one and moving the branch (like a pointer) to that new commit.
 ** Repository
