@@ -48,6 +48,12 @@ And of course you can combine the keys together, so you may perform a rebase of 
 As a simple example use "git rebase -i branch^^", mark the second commit with "f" instead of "pick" in the popped up editor, and you will end with the two latest commits of the branch united into the single one.
 ** TODO Reset
 ** TODO Fetch
+Basically it fetches what you want (branch usually) from where you want. By default it fetches current tracking branch from origin. You may give it either a path to desired local repository, or URL where some remote repository resides and state a reference of commit which you want to fetch. 
+
+That command is used mostly to fetch the latest data from origin without changhing your current commit and working directory. Or you may use it to fetch something from another person if you have access to his/her repository. 
+
+Great examples of how to use it you may find at git-fetch man page.
+
 ** TODO Pull
 ** TODO Push
 * TODO Useful stuff
